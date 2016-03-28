@@ -10,8 +10,11 @@ require('./models/Restaurants');
 require('./models/Comments');
 require('./models/Users')
 
-var routes = require('./routes/index');
-//var restaurants = require('./routes/RestaurantRoute');
+var index = require('./routes/index');
+var restaurants = require('./routes/RestaurantRoute');
+var users = require('./routes/UsersRoute');
+var comments = require('./routes/CommentRoute');
+//var upvotes = require('./routes/UpvoteRoute');
 
 var app = express();
 
@@ -29,8 +32,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/restaurants', routes);
+app.use('/', index);
+app.use('/', restaurants);
+app.use('/', users);
+app.use('/', comments);
+//app.use('/', upvotes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

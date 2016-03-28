@@ -4,10 +4,7 @@ app.controller('MainCtrl', [
 '$scope', 'restaurants',
 function($scope, restaurants){
 
-   
   $scope.restaurants = restaurants.restaurants; 
-  
-  
  
   $scope.addRestaurant = function(){
     if(!$scope.title || $scope.title === '') { return; }
@@ -15,10 +12,7 @@ function($scope, restaurants){
       title: $scope.title,
       link: $scope.link,
       upvotes: 0,
-      comments: [
-        {author: 'Joe', body: 'Cool Restaurant!', upvotes: 0},
-       {author: 'Bob', body: 'Weird one', upvotes: 0}
-      ]
+      comments: []
     });
     $scope.title = '';
     $scope.link = '';
